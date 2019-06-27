@@ -11,12 +11,16 @@ module.exports = function(app) {
 
     app.post('/todo', urlencodedParser, function(req, res) {
         data.push(req.body);
-        res.json(data);
+        res.send(true);
         // res.render('todo', {data: data});
     });
     app.delete('/todo/:item', function(req, res) {
-        data = data.filter(function(todo) {
-            return todo.item.replace(/ /g, "-") !== req.params.item;
-        });
+        let value = req.params.item;
+        for(let i=0;i<data.length;i++) {
+            if(data[i].item.replace(/ /g, "-") === value) {
+                data.splice(i,1);
+                res.send(true);
+            }
+        }
     });
 };
