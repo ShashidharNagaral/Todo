@@ -1,14 +1,26 @@
-var express = require('express');
-
-var app = express();
-
-var todoController = require('./controllers/todoController');
+const express = require('express');
+const connection = require('./dbConnection');
+const util = require("./utils");
+const app = express();
+const bodyparser = require("body-parser");
+const todoController = require('./controllers/todoController');
 
 app.set('view engine', 'ejs');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({
+    extended: false
+}));
 
 app.use(express.static('./public'));
 
 todoController(app);
 
-app.listen(3000, '127.0.0.1');
-console.log('listening to port 3000');
+async function start() {
+    await connection.connecttoDB((e, o) => {
+        console.log(o);
+    });
+    app.listen(util.DB_PORT, util.DB_HOST, () => {
+        console.log("server started");
+    });
+}
+start();

@@ -1,32 +1,33 @@
-body{
-    background: #0249b4;
+body {
+    /* background: #0249b4; */
     font-family: tahoma;
     color: white;
+    background: white;
 }
 
-#todo-table{
+#todo-table {
     position: relative;
-    width: 95%;
+    width: 80%;
     background: #090d13;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-    height: 580px;
+    height: min-content;
     border-radius: 10px;
 }
 
-#todo-table form:after{
+#todo-table form:after {
     margin: 0;
     content: '';
     display: block;
     clear: both;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 70%;
     padding: 20px;
-    background:#171b20;
-    border: 0 ;
+    background: #171b20;
+    border: 0;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     float: left;
@@ -34,7 +35,7 @@ input[type="text"]{
     color: #989898;
 }
 
-button{
+button {
     padding: 20px;
     width: 25%;
     background: #23282e;
@@ -48,17 +49,17 @@ button{
     display: inline-block;
 }
 
-button:hover{
+button:hover {
     background: #0249b4;
 }
 
-ul{
+ul {
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
 }
 
-li{
+li {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -68,13 +69,15 @@ li{
     letter-spacing: 1px;
 }
 
-li:hover{
+li:hover {
     text-decoration: line-through;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
-h1{
+h1 {
     background: url(./todo-image.png) no-repeat center;
+    margin-top: 5%;
+    padding-bottom: 2%;
     margin-bottom: 0;
     text-indent: -10000px;
 }
